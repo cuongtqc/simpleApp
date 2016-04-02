@@ -1,0 +1,24 @@
+extends layout
+block content
+	.container
+		h3.jumbotron.text-center.text-big Todo App
+		// Hien thi form nhap task
+		form.form-group(action='/add', method='POST')
+			label(for='task-input') Nhập công việc:
+			input#taskInput.form-control(type='text', name='taskInput')
+			label(for='deadline') Nhập deadline:
+			input#deadline.form-control(type='datetime', name='deadline')
+			button.btn.btn-warning(type='submit') Add
+		// Hien thi danh sach task
+		-//var data = ['uong nuoc' , ' an com ', 'danh rang'];
+		.container
+			h2.info Danh sách công việc:
+		-if(!title)
+			h4.warning Không có việc nào
+		-var index = 0;
+		-for task in title
+			form.row(action='/del', method='POST')
+				button.hidden(hidden, name="id"+index)= task._id
+				button.col-md-6.text-left.btn.btn-info(name="del", type="submit")= index + task.todo || "No todo"
+				button.col-md-6.text-left.btn.btn-info(type="submit", disabled)= index + task.deadline || "No deadline"
+			-index++;
