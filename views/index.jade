@@ -19,6 +19,6 @@ block content
 		-for task in title
 			div.hidden(hidden, name="id"+index)= task._id
 			-var temp = index + 1;
-			a.col-md-6.col-sm-6.text-left.btn.btn-info(href = "https://cdcnsimpletodo.herokuapp.com/del/"+task._id)= temp +". " task.todo || "No todo"
+			a.col-md-6.col-sm-6.text-left.btn.btn-info(href = "https://cdcnsimpletodo.herokuapp.com/del/"+task._id)= temp +". " + task.todo || "No todo"
 			a.col-md-6.col-sm-6.text-left.btn.btn-info(type="submit", disabled)=task.deadline || "No deadline"
 			-index++;
