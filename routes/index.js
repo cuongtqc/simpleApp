@@ -25,7 +25,7 @@ router.post('/add', function(req, res, next) {
 });
 
 router.get('/del/:id', function(req, res, next) {
-	tasks.remove({ todo: req.params.id});
+	tasks.remove({ _id: req.params.id});
 	console.log("Request: " + req.params.id);
     res.redirect('/');
 
