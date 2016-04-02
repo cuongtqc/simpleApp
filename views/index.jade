@@ -17,8 +17,7 @@ block content
 			h4.warning Không có việc nào
 		-var index = 0;
 		-for task in title
-			form.row(action='/del', method='POST')
-				button.hidden(hidden, name="id"+index)= task._id
-				button.col-md-6.text-left.btn.btn-info(name="del", type="submit")= index + task.todo || "No todo"
-				button.col-md-6.text-left.btn.btn-info(type="submit", disabled)= index + task.deadline || "No deadline"
+			div.hidden(hidden, name="id"+index)= task._id
+			a.col-md-6.text-left.btn.btn-info(href = "https://cdcnsimpletodo.herokuapp.com/del/"+task._id)= index + task.todo || "No todo"
+			a.col-md-6.text-left.btn.btn-info(type="submit", disabled)= index + task.deadline || "No deadline"
 			-index++;

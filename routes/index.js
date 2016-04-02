@@ -24,9 +24,9 @@ router.post('/add', function(req, res, next) {
 
 });
 
-router.post('/del', function(req, res, next) {
-	tasks.remove({ todo: req.body.del});
-	console.log("Request: " + req.body.id1);
+router.get('/del/:id', function(req, res, next) {
+	tasks.remove({ todo: req.params.id});
+	console.log("Request: " + req.params.id);
     res.redirect('/');
 
 });
